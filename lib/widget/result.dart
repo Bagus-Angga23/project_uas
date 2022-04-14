@@ -15,7 +15,8 @@ class Result extends StatelessWidget {
       // ignore: prefer_const_literals_to_create_immutables
       children: [
         Container(
-          margin: const EdgeInsets.only(left: 10),
+
+          margin: const EdgeInsets.only(left: 150),
           padding: const EdgeInsets.fromLTRB(5, 30, 5, 30),
           decoration: BoxDecoration(border: Border.all(color: Colors.orange)),
           child: Column(

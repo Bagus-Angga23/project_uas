@@ -2,21 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:project_uas/widget/input.dart';
 import 'package:project_uas/widget/result.dart';
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class reamur extends StatefulWidget {
+  const reamur({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<reamur> createState() => _reamurState();
 }
 
-
-class _MyAppState extends State<MyApp> {
+class _reamurState extends State<reamur> {
   // text controller
   TextEditingController etInput = TextEditingController();
   //variabel berubah
   double _inputUser = 0;
-  double _kelvin = 0;
-  double _fahrenheit = 0;
   double _reamur = 0;
   final _formKey = GlobalKey<FormState>();
 
@@ -25,8 +22,6 @@ class _MyAppState extends State<MyApp> {
       if (_formKey.currentState!.validate()) {
         _inputUser = double.parse(etInput.text);
         _reamur = 4 / 5 * _inputUser;
-        _fahrenheit = 9 / 5 * _inputUser + 32;
-        _kelvin = _inputUser + 273;
       }
     });
   }
@@ -36,13 +31,13 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Konversi Suhu',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const Text(" Aplikasi Pengukur Suhu"),
+          title: const Text(" Aplikasi Pengukur Suhu Reamur"),
         ),
         body: Container(
           margin: const EdgeInsets.all(8),
@@ -57,17 +52,10 @@ class _MyAppState extends State<MyApp> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Result(
-                    result: _kelvin,
-                    name: "Kelvin",
-                  ),
-                  Result(
-                    result: _fahrenheit,
-                    name: "Fahrenheit",
-                  ),
-                  Result(
                     result: _reamur,
                     name: "Reamur",
                   ),
+
                 ],
               ),
               ElevatedButton(

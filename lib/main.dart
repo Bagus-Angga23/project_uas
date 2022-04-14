@@ -1,10 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'suhu.dart';
+import 'kelvin.dart';
 import 'profile.dart';
-import 'coba.dart';
+import 'farenheit.dart';
+import 'reamur.dart';
+
 
 void main() => runApp(MaterialApp(
-  theme: ThemeData.light(),
+  theme: ThemeData.dark(),
   title: "Pengukur Suhu",
   home: bottomNavbar(),
 ));
@@ -21,8 +24,9 @@ class _bottomNavbarState extends State<bottomNavbar> {
 
   final screens = [
     MyApp(),
-    Profile(),
-    Coba(),
+    farenheit(),
+    reamur(),
+    Profile()
   ];
 
   void _onItemTapped(int index) {
@@ -39,9 +43,10 @@ class _bottomNavbarState extends State<bottomNavbar> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_box), label: 'Profile')
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Kelvin", backgroundColor: Colors.amber),
+          BottomNavigationBarItem(icon: Icon(Icons.square), label: 'Fahrenheit'),
+          BottomNavigationBarItem(icon: Icon(Icons.square), label: 'Reamur'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_box), label: 'Profile')
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
